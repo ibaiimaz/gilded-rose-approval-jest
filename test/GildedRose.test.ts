@@ -26,13 +26,17 @@ describe("ApprovalTests", () => {
         verifyAsJson(gildedRose.items[0]);
     });
 
-    test.skip("Combination", () => {
-        verifyAllCombinations3(
-            doUpdateQuality,
-            ["foo"],
-            [0],
-            [0]
-        );
+    test("Combination", () => {
+        const names = [
+            "foo",
+            "Aged Brie",
+            "Backstage passes to a TAFKAL80ETC concert",
+            "Sulfuras, Hand of Ragnaros",
+        ];
+        const sellIns = [0, 10, 11, 5, 6];
+        const qualities = [0, 1, 49, 50, 51];
+
+        verifyAllCombinations3(doUpdateQuality, names, sellIns, qualities);
     });
 
     const doUpdateQuality = (name: string, sellIn: number, quality: number) => {
